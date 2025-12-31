@@ -84,7 +84,7 @@ function Perfil() {
                 <div className="text-sm text-gray-600 mb-1">Nivel: {insc.curso?.nivel}</div>
                 <div className="text-sm text-gray-600 mb-1">Horarios: {insc.curso?.horarios?.join(', ')}</div>
                 <button
-                  className="mt-2 bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors w-full md:w-auto"
+                  className="mt-2 bg-black/70 text-white px-4 py-2 rounded-lg font-semibold hover:bg-black transition-colors w-full md:w-auto"
                   onClick={() => handleDescargarPDF(insc)}
                 >
                   Descargar comprobante PDF

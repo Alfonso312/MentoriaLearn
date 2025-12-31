@@ -121,7 +121,7 @@ function Estudiantes() {
 
     try {
       const response = await estudianteService.create(formData);
-      
+
       if (response.data) {
         setMessage({ type: 'success', text: '¡Estudiante registrado exitosamente!' });
         setFormData({
@@ -139,9 +139,9 @@ function Estudiantes() {
       }
     } catch (error) {
       console.error('Error al registrar estudiante:', error);
-      setMessage({ 
-        type: 'error', 
-        text: error.response?.data?.message || 'Error al registrar estudiante' 
+      setMessage({
+        type: 'error',
+        text: error.response?.data?.message || 'Error al registrar estudiante'
       });
     } finally {
       setLoading(false);
@@ -244,11 +244,10 @@ function Estudiantes() {
 
       {/* Mensaje de estado */}
       {message.text && (
-        <div className={`mb-6 p-4 rounded-lg ${
-          message.type === 'success' 
-            ? 'bg-green-100 text-green-700 border border-green-200' 
+        <div className={`mb-6 p-4 rounded-lg ${message.type === 'success'
+            ? 'bg-green-100 text-green-700 border border-green-200'
             : 'bg-red-100 text-red-700 border border-red-200'
-        }`}>
+          }`}>
           {message.text}
         </div>
       )}
@@ -261,7 +260,7 @@ function Estudiantes() {
         >
           {showForm ? 'Ocultar Formulario' : 'Agregar Nuevo Estudiante'}
         </button>
-        
+
         <Link
           to="/register"
           className="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors inline-block"
@@ -387,11 +386,10 @@ function Estudiantes() {
               <button
                 type="submit"
                 disabled={loading}
-                className={`w-full py-3 px-4 rounded-lg font-semibold transition-colors ${
-                  loading 
-                    ? 'bg-gray-400 cursor-not-allowed' 
+                className={`w-full py-3 px-4 rounded-lg font-semibold transition-colors ${loading
+                    ? 'bg-gray-400 cursor-not-allowed'
                     : 'bg-indigo-600 hover:bg-indigo-700'
-                } text-white`}
+                  } text-white`}
               >
                 {loading ? 'Registrando...' : 'Registrar Estudiante'}
               </button>
@@ -470,7 +468,7 @@ function Estudiantes() {
                   </td>
                 </tr>
               ))}
-              
+
               {/* Usuarios que se registraron como estudiantes */}
               {usuariosEstudiantes.map((usuario) => (
                 <tr key={`usuario-${usuario.id}`} className="hover:bg-gray-50">
@@ -532,7 +530,7 @@ function Estudiantes() {
               {inscripciones.map((insc) => (
                 <tr key={insc.id} className="hover:bg-gray-50">
                   <td className="px-6 py-4 whitespace-nowrap">
-                    {insc.estudiante?.nombre} {insc.estudiante?.apellido} <br/>
+                    {insc.estudiante?.nombre} {insc.estudiante?.apellido} <br />
                     <span className="text-xs text-gray-500">{insc.estudiante?.email}</span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
@@ -540,7 +538,7 @@ function Estudiantes() {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <button
-                      className="bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                      className="bg-black/70 text-white px-4 py-2 rounded-lg font-semibold hover:bg-black transition-colors"
                       onClick={() => handleDescargarPDF(insc)}
                     >
                       Descargar PDF

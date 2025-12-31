@@ -230,7 +230,7 @@ function Cursos() {
                 <div className="text-sm text-gray-600 mb-2">Nivel: {insc.curso?.nivel}</div>
                 <div className="text-sm text-gray-600 mb-2">Horarios: {insc.curso?.horarios?.join(', ')}</div>
                 <button
-                  className="mt-auto bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                  className="mt-auto bg-black/70 text-white px-4 py-2 rounded-lg font-semibold hover:bg-black transition-colors"
                   onClick={() => handleDescargarPDF(insc)}
                 >
                   Descargar comprobante PDF
@@ -312,7 +312,7 @@ function Cursos() {
 
                 {inscrito && (
                   <button
-                    className="mt-2 w-full py-2 px-4 rounded-lg font-semibold transition-colors bg-blue-600 text-white hover:bg-blue-700"
+                    className="mt-2 w-full py-2 px-4 rounded-lg font-semibold transition-colors bg-black/70 text-white hover:bg-black"
                     onClick={() => {
                       // Buscar la inscripción correspondiente
                       const insc = misInscripciones.find(i => i.curso && i.curso.id === curso.id);
@@ -364,7 +364,7 @@ function Cursos() {
             </button>
             {isAuthenticated && isStudent() && misInscripciones.some(i => i.curso && i.curso.id === cursoSeleccionado.id) && (
               <button
-                className="w-full mt-4 py-2 px-4 rounded-lg font-semibold transition-colors bg-blue-600 text-white hover:bg-blue-700"
+                className="w-full mt-4 py-2 px-4 rounded-lg font-semibold transition-colors bg-black/70 text-white hover:bg-black"
                 onClick={() => {
                   const insc = misInscripciones.find(i => i.curso && i.curso.id === cursoSeleccionado.id);
                   handleDescargarPDF(insc);

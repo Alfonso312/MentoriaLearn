@@ -8,15 +8,15 @@ function Programas() {
   const programas = [
     {
       id: 1,
-      nombre: 'Programa Básico',
+      nombre: 'Programa Prueba',
       descripcion: 'Ideal para estudiantes que buscan mejorar su rendimiento académico general',
-      precio: '299',
+      precio: 'Gratis',
       caracteristicas: [
-        '2 sesiones semanales',
-        'Material de estudio incluido',
-        'Seguimiento mensual',
-        'Acceso a plataforma online',
-        'Reportes de progreso',
+        'Acceso a cursos gratuitos seleccionados.',
+        'Material y recursos limitados.',
+        'Apoyo básico a la comunidad.',
+        'Mentoria de prueba: 1 pregunta por dia durante 1 semana.',
+        'No hay certificación al finalizar.',
       ],
       destacado: false,
     },
@@ -24,7 +24,7 @@ function Programas() {
       id: 2,
       nombre: 'Programa Avanzado',
       descripcion: 'Programa completo con mentoría personalizada y preparación para exámenes',
-      precio: '499',
+      precio: 'S/ 10.00',
       caracteristicas: [
         '4 sesiones semanales',
         'Material de estudio premium',
@@ -40,7 +40,7 @@ function Programas() {
       id: 3,
       nombre: 'Programa Elite',
       descripcion: 'Mentoría de alto rendimiento para estudiantes sobresalientes',
-      precio: '799',
+      precio: 'S/ 25.00',
       caracteristicas: [
         'Sesiones ilimitadas',
         'Material exclusivo',
@@ -59,7 +59,7 @@ function Programas() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="text-center mb-16">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
-          Nuestros Programas
+          Nuestros Planes de Programas
         </h1>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
           Programas diseñados para diferentes necesidades y objetivos académicos
@@ -73,12 +73,11 @@ function Programas() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className={`bg-white rounded-xl shadow-lg overflow-hidden ${
-              programa.destacado ? 'ring-2 ring-indigo-600' : ''
-            }`}
+            className={`bg-white rounded-xl shadow-lg overflow-hidden ${programa.destacado ? 'ring-2 ring-black/70' : ''
+              }`}
           >
             {programa.destacado && (
-              <div className="bg-indigo-600 text-white text-center py-2">
+              <div className="bg-black/70 text-white text-center py-2">
                 Más Popular
               </div>
             )}
@@ -89,24 +88,23 @@ function Programas() {
               <p className="text-gray-600 mb-4">{programa.descripcion}</p>
               <div className="mb-6">
                 <span className="text-4xl font-bold text-gray-900">
-                  S/{programa.precio}
+                  {programa.precio}
                 </span>
-                <span className="text-gray-600">/mes</span>
+                <span className="text-gray-600"></span>
               </div>
               <ul className="space-y-3 mb-6">
                 {programa.caracteristicas.map((caracteristica, i) => (
                   <li key={i} className="flex items-start">
-                    <CheckIcon className="h-6 w-6 text-indigo-600 mr-2 flex-shrink-0" />
+                    <CheckIcon className="h-6 w-6 text-black/70 mr-2 flex-shrink-0" />
                     <span className="text-gray-600">{caracteristica}</span>
                   </li>
                 ))}
               </ul>
               <button
-                className={`w-full py-3 px-4 rounded-lg font-semibold transition-colors ${
-                  programa.destacado
-                    ? 'bg-indigo-600 text-white hover:bg-indigo-700'
-                    : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
-                }`}
+                className={`w-full py-3 px-4 rounded-lg font-semibold transition-colors ${programa.destacado
+                  ? 'bg-black/70 text-white hover:bg-black'
+                  : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                  }`}
                 onClick={() => navigate('/register')}
               >
                 Comenzar Ahora

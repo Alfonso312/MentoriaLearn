@@ -21,7 +21,7 @@ function Login() {
 
     try {
       const response = await authService.login(formData);
-      
+
       if (response.data.success) {
         setMessage({ type: 'success', text: '¡Login exitoso! Bienvenido.' });
         login(response.data.user);
@@ -33,9 +33,9 @@ function Login() {
       }
     } catch (error) {
       console.error('Error en login:', error);
-      setMessage({ 
-        type: 'error', 
-        text: error.response?.data?.message || 'Error de conexión. Intenta nuevamente.' 
+      setMessage({
+        type: 'error',
+        text: error.response?.data?.message || 'Error de conexión. Intenta nuevamente.'
       });
     } finally {
       setLoading(false);
@@ -59,6 +59,9 @@ function Login() {
         className="max-w-md w-full space-y-8"
       >
         <div>
+          <div className="flex justify-center mb-6">
+            <img src="/images/LogoLearn.jpg" alt="Logo Mentoria Learn" className="h-48 w-48 rounded" />
+          </div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
             Iniciar Sesión
           </h2>
@@ -69,11 +72,10 @@ function Login() {
 
         {/* Mensaje de estado */}
         {message.text && (
-          <div className={`p-4 rounded-lg ${
-            message.type === 'success' 
-              ? 'bg-green-100 text-green-700 border border-green-200' 
-              : 'bg-red-100 text-red-700 border border-red-200'
-          }`}>
+          <div className={`p-4 rounded-lg ${message.type === 'success'
+            ? 'bg-green-100 text-green-700 border border-green-200'
+            : 'bg-red-100 text-red-700 border border-red-200'
+            }`}>
             {message.text}
           </div>
         )}
@@ -116,11 +118,10 @@ function Login() {
             <button
               type="submit"
               disabled={loading}
-              className={`group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white ${
-                loading 
-                  ? 'bg-gray-400 cursor-not-allowed' 
-                  : 'bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
-              }`}
+              className={`group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white ${loading
+                ? 'bg-gray-400 cursor-not-allowed'
+                : 'bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+                }`}
             >
               {loading ? 'Iniciando sesión...' : 'Iniciar Sesión'}
             </button>

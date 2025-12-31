@@ -1,7 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+  const navigate = useNavigate();
   const features = [
     {
       icon: "🎓",
@@ -67,7 +69,8 @@ const Home = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors"
+              onClick={() => navigate('/register')}
+              className="bg-white text-black/70 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors"
             >
               Comenzar Ahora
             </motion.button>
@@ -112,7 +115,7 @@ const Home = () => {
               >
                 <p className="text-gray-600 mb-4">"{testimonial.quote}"</p>
                 <div className="flex items-center">
-                  <div className="w-12 h-12 bg-blue-600 rounded-full mr-4"></div>
+                  <div className="w-12 h-12 bg-black/70 rounded-full mr-4"></div>
                   <div>
                     <h4 className="font-semibold">{testimonial.name}</h4>
                     <p className="text-sm text-gray-500">{testimonial.role}</p>
